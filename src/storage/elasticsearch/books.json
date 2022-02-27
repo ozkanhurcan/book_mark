@@ -1,0 +1,61 @@
+{
+    "index": "books",
+    "body": {
+        "settings": {
+            "number_of_shards": 3,
+            "number_of_replicas": 0,
+            "analysis": {
+            "filter": {
+                "autocomplete_filter": {
+                    "type": "edge_ngram",
+                    "min_gram": 1,
+                    "max_gram": 20
+                }
+            },
+            "analyzer": {
+                "autocomplete": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "autocomplete_filter"
+                    ]
+                }
+            }
+        }
+        },
+        "mappings": {
+            "_source": {
+                "enabled": true
+            },
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "keyword"
+                },
+                "description": {
+                    "type": "keyword"
+                },
+                "author_name": {
+                    "type": "keyword"
+                },
+                "keyword": {
+                    "type": "text",
+                    "analyzer": "autocomplete",
+                    "search_analyzer": "standard"
+                },
+                "page_count": {
+                  "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "date"
+                },
+                "createdAt": {
+                    "type": "date"
+                }
+            }
+        }
+    }
+}

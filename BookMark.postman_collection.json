@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "64cb887c-65fe-4792-9b89-920368bbb4c8",
+		"name": "BookMark",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "/register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"Ozkan Hurcan\",\n    \"last_name\": \"Ozkan Hurcan\",\n    \"email\": \"ozkanhurcan@gmail.com\",\n    \"password\": \"123123e\",\n    \"confirm_password\": \"123123e\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{domain}}/api/v1/auth/register",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/login",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY0NTk3MDk2MywiZXhwIjoxNjQ1OTcyNzYzLCJ0eXBlIjoiYWNjZXNzIn0.rH2NPc0MrN69f-u_i6a3D1OrdzOUWdV6TvMpBHeShzw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ozkanhurcan@gmail.com\",\n    \"password\": \"123123e\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{domain}}/api/v1/auth/login",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY0NTk3MDk2MywiZXhwIjoxNjQ1OTcyNzYzLCJ0eXBlIjoiYWNjZXNzIn0.rH2NPc0MrN69f-u_i6a3D1OrdzOUWdV6TvMpBHeShzw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{domain}}/api/v1/book",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"book"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "book",
+					"item": [
+						{
+							"name": "/book",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{domain}}/api/v1/book?keyword=harry&minPageNum=50&maxPageNum=500",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"book"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "30",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "50",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "harry"
+										},
+										{
+											"key": "minPageNum",
+											"value": "50"
+										},
+										{
+											"key": "maxPageNum",
+											"value": "500"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "book/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{domain}}/api/v1/book/1",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"book",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "bookmark",
+					"item": [
+						{
+							"name": "/bookmark",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY0NTk5ODE0MywiZXhwIjoxNjQ1OTk5OTQzLCJ0eXBlIjoiYWNjZXNzIn0.dzrlcc1Nj8RKir-PQC-Dbh8FSD7ksA04ZkBmH9EymO4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{domain}}/api/v1/bookmark",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bookmark"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/bookmark/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY0NTk5NjI2MCwiZXhwIjoxNjQ1OTk4MDYwLCJ0eXBlIjoiYWNjZXNzIn0.qlmsJiPLXMa_c0Z2LWO4loyGqmtTG3510q7XVVNLpo0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{domain}}/api/v1/bookmark/980",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bookmark",
+										"980"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/bookmark/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{domain}}/api/v1/bookmark/1",
+									"protocol": "http",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bookmark",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
